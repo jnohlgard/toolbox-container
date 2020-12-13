@@ -16,3 +16,4 @@ ninja-build
 cmake
 npm
 vim-enhanced
+java-11-amazon-corretto-devel
