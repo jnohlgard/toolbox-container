@@ -1,0 +1,16 @@
+zsh
+@c-development
+clang
+gcc
+clang-devel
+llvm-devel
+gdb
+libcxx
+lld
+lldb
+tar
+gzip
+xz
+make
+ninja-build
+cmake
