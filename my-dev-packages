@@ -15,3 +15,4 @@ make
 ninja-build
 cmake
 npm
+vim-enhanced
