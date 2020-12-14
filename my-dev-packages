@@ -22,3 +22,6 @@ zlib-devel
 sqlite-devel
 pulseaudio-libs-devel
 alsa-lib-devel
+clang10-devel
+llvm10-devel
+clang-tools-extra
