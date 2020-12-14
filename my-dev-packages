@@ -1,4 +1,6 @@
 zsh
+langpacks-en
+langpacks-sv
 @c-development
 clang
 gcc
