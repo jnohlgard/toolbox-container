@@ -19,4 +19,4 @@ npm
 java-11-amazon-corretto-devel
 libcurl-devel
 zlib-devel
-sqlite
+sqlite-devel
