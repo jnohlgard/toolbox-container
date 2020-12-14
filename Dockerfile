@@ -19,4 +19,7 @@ COPY my-dev-packages /
 RUN dnf -y install $(</my-dev-packages)
 RUN rm /my-dev-packages
 
+# Manual override for vim
+RUN dnf remove -y vim-minimal && dnf install -y vim-enhanced
+
 RUN dnf clean all
