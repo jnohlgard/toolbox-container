@@ -25,5 +25,11 @@ fi
 container=$(buildah from "${base_image}")
 buildah config --label maintainer="Joakim Nohlgård <joakim@nohlgard.se>" ${container}
 
+# CLion bundles its own JRE build based on OpenJDK 11, but we still need a
+# bunch of X11 libraries to run it. The easiest solution is to install OpenJDK
+# on the container which will pull in all of those deps
+buildah run ${container} dnf install -y java-11-openjdk
+buildah run ${container} dnf clean all
+
 buildah add --add-history ${container} "${clion_archive}" /opt/
-buildah commit --rm --timestamp "$(stat --format %Y ${clion_archive})" ${container} ${tag}
+buildah commit --rm ${container} ${tag}
