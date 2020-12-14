@@ -16,3 +16,4 @@ ninja-build
 cmake
 npm
 java-11-amazon-corretto-devel
+libcurl-devel
