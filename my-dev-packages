@@ -20,3 +20,5 @@ java-11-amazon-corretto-devel
 libcurl-devel
 zlib-devel
 sqlite-devel
+pulseaudio-libs-devel
+alsa-lib-devel
