@@ -11,15 +11,9 @@ base_image=registry.fedoraproject.org/f33/fedora-toolbox:33
 clion_url=https://download.jetbrains.com/cpp/CLion-${clion_version}.tar.gz
 clion_archive=CLion-${clion_version}.tar.gz
 
-resume_download_to='curl -R -C - -f -L -o'
-#resume_download_to='wget --timestamping -c -O'
+mydir=$(cd "$(dirname "$0")"; pwd)
 
-# Get the CLion archive from JetBrains server unless we already have it
-if ! printf '%s *%s\n' "${clion_sha256}" "${clion_archive}" | sha256sum -c; then
-  printf '%s not found, will download...\n' "${clion_archive}" >&2
-  ${resume_download_to} "${clion_archive}" "${clion_url}"
-  printf '%s *%s\n' "${clion_sha256}" "${clion_archive}" | sha256sum -c
-fi
+${mydir}/download-verify/download-verify.sh --sha256 "${clion_sha256}" -o "${clion_archive}" "${clion_url}"
 
 # Create a container
 container=$(buildah from "${base_image}")
