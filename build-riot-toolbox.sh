@@ -39,4 +39,5 @@ buildah config --label maintainer="Joakim Nohlgård <joakim@nohlgard.se>" ${cont
 buildah run ${container} dnf -y install $(<"${dnf_packages_file}")
 buildah run ${container} dnf clean all
 ( cd "${dist_dir}" && buildah add ${container} "${opt_packages[@]}" /opt/ )
+buildah config --env PATH="$(buildah run $container printenv PATH):/opt/gcc-arm-none-eabi-${arm_gcc_version}/bin/:/opt/mips-mti-elf/${mips_mti_gcc_version}/bin/:/opt/riscv64-unknown-elf-gcc-${riscv_gcc_version}-${arch}-linux-centos6/bin:/opt/riot-toolchain/msp430-elf/${msp430_gcc_version}/bin/" ${container}
 buildah commit --rm ${container} ${toolbox_tag}
