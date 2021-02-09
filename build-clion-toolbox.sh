@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euxo pipefail
 
-clion_version=2020.3
-clion_sha256=ffc862511bf80debb80f9d60d2999b02e32b7c3cbb8ac25a4c0efc5b9850124f
+clion_version=2020.3.2
+clion_sha256=5d49bd88b6457271464687453ff65880a4a38974575bb76f969036c692072280
 
 tag=clion-toolbox:${clion_version}
 
