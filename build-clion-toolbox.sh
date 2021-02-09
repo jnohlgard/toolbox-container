@@ -16,7 +16,7 @@ mydir=$(cd "$(dirname "$0")"; pwd)
 ${mydir}/download-verify/download-verify.sh --sha256 "${clion_sha256}" -o "${clion_archive}" "${clion_url}"
 
 # Create a container
-container=$(buildah from "${base_image}")
+container=$(buildah from --pull "${base_image}")
 buildah config --label maintainer="Joakim Nohlgård <joakim@nohlgard.se>" ${container}
 
 # CLion bundles its own JRE build based on OpenJDK 11, but we still need a
