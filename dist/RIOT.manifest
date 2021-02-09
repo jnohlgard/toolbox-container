@@ -1,0 +1,24 @@
+# GNU Arm Embedded Toolchain
+# source: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
+DIST gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2 156882554 MD5 8312c4c91799885f222f663fc81f9a31 SHA256 21134caa478bbf5352e239fbc6e2da3038f8d2207e089efc96c3b55f1edcd618 SHA512 62671793e812389fd667669d1894c9a01433f143a8c91a551f034b3fa550167daeefdae29c240734c6a44ec80a00c3ce01b108a33aab92d034ef2a81efff1c13 SHA1 a9a1155910260500011b6fb32e720e804fe59428
+
+# MIPS Codescape GNU Toolchain
+# source: https://codescape.mips.com/
+DIST Codescape.GNU.Tools.Package.2018.09-03.for.MIPS.MTI.Bare.Metal.CentOS-6.x86_64.tar.gz 287448529 MD5 37683cc82da4d22d01181a72c8e24a47 SHA256 97c6576cb1a4c32eae3b9badf2c33215f6ca59a1614af85dbe5514a2b3f65f0f
+DIST Codescape.GNU.Tools.Package.2020.06-01.for.MIPS.MTI.Bare.Metal.CentOS-6.x86_64.tar.gz 519222585 MD5 f342a948434bf87cdf266c7c999dbe3b SHA256 f53f24d303d9a8e9ce31ec3b15e6595b0287e84a5f80580623a384cf0ea4964f
+
+# GNU MCU Eclipse RISC-V toolchain (old)
+# source: https://gnu-mcu-eclipse.github.io/blog/2019/05/21/riscv-none-gcc-v8-2-0-2-2-20190521-released/
+DIST gnu-mcu-eclipse-riscv-none-gcc-8.2.0-2.2-20190521-0004-centos64.tgz 176980034 SHA256 3b9d585f6851b137b3938fb288c5e95d13d0580002fa6ca82b754fcffbff508c
+
+# SiFive RISC-V toolchain
+# source: https://github.com/sifive/freedom-tools/releases
+DIST riscv64-unknown-elf-gcc-10.1.0-2020.08.2-x86_64-linux-centos6.tar.gz 362849283 SHA256 b66fd40e1c8622cf3ed4619a568e0f880e64e98690ecba6ebc0c38db6df3cbc6
+
+# MSP430 GCC from TI
+# source: https://www.ti.com/tool/download/MSP430-GCC-OPENSOURCE
+DIST msp430-gcc-9.2.0.50_linux64.tar.bz2 63683002 SHA256 a439316f586e5c8e4b18843e7f7648dfce01f3ea0ebd9ed6837bdcdf931c45c3
+
+# RIOT built MSP430 GCC
+# source: https://github.com/RIOT-OS/toolchains/releases
+DIST riot-msp430-elf-10.1.0-18.tgz 76429481 SHA256 ff10de6fd4567557a1cf61e7c16b55a6a21edb9800afe89c2228c19da3a32b0f
