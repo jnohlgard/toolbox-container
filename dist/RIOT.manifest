@@ -22,3 +22,20 @@ DIST msp430-gcc-9.2.0.50_linux64.tar.bz2 63683002 SHA256 a439316f586e5c8e4b18843
 # RIOT built MSP430 GCC
 # source: https://github.com/RIOT-OS/toolchains/releases
 DIST riot-msp430-elf-10.1.0-18.tgz 76429481 SHA256 ff10de6fd4567557a1cf61e7c16b55a6a21edb9800afe89c2228c19da3a32b0f
+
+# Espressif Xtensa ESP8266 GCC
+# source: https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/linux-setup.html
+DIST xtensa-lx106-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz 88885561 SHA256 0a1804b5e2231c6db8b72af6bc2a0f9a5b6994cfba29956d412651109f13fe7e
+
+# Espressif ESP8266 RTOS SDK
+# source: https://github.com/espressif/ESP8266_RTOS_SDK/releases
+DIST ESP8266_RTOS_SDK-v3.3.zip 131463305 SHA256 171d503f66bec22c587ae1c2d5accb3da0b56c4d912b7900ac01bb33eb283ce6
+
+# Espressif ESP32 ESP-IDF
+# source: https://www.espressif.com/en/support/download/sdks-demos
+DIST esp-idf-v4.2.zip 534871265 SHA256 8cf94f753877f51e801a3475efb2aa11929e8e352c3de75ce13293f0b40317f0
+
+# Espressif Xtensa ESP32 GCC
+# source: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf-tools.html
+DIST xtensa-esp32-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz - SHA256 674080a12f9c5ebe5a3a5ce51c6deaeffe6dfb06d6416233df86f25b574e9279
+DIST xtensa-esp32s2-elf-gcc8_4_0-esp-2020r3-linux-amd64.tar.gz - SHA256 40fafa47045167feda0cd07827db5207ebfeb4a3b6b24475957a921bc92805ed
