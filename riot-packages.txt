@@ -9,6 +9,7 @@ cmake
 gcc
 gcc-c++
 gdb
+glibc-devel.i686
 llvm
 make
 meson
