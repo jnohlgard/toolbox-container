@@ -15,8 +15,6 @@ make
 meson
 ninja-build
 
-vim
-
 avr-gcc
 avr-libc
 avr-gcc-c++
