@@ -1,0 +1,5 @@
+# tools for building with BOARD=native
+gcc
+gcc-c++
+gdb
+glibc-devel.i686
