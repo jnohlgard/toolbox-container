@@ -6,7 +6,8 @@ arch=$(uname -m)
 
 toolbox_tag=riotbuild
 base_image=registry.fedoraproject.org/f33/fedora-toolbox:33
-dnf_packages_file=riot-packages.txt
+dnf_packages_dir=${mydir}/riot-packages.d
+dnf_user_packages_dir=${mydir}/user-packages.d
 
 arm_gcc_version=10-2020-q4-major
 mips_mti_gcc_version=2020.06-01
@@ -36,6 +37,14 @@ opt_packages=(
   "${esp32_gcc_package}"
 )
 
+dnf_install_from_list_files() {
+  container=${1}; shift
+  # Read all lines in the given files, stripping comments that begin with # (hash symbol)
+  ( for f in "$@"; do
+    sed -e '/^[ \t]*#/d' -e 's/[ \t]#.*$//' < "${f}"
+  done ) | xargs buildah run ${container} dnf -y install
+}
+
 # Ensure packages are downloaded
 ( cd "${dist_dir}" && "${manifest_downloader}" "${manifest}" "${opt_packages[@]}" )
 
@@ -43,7 +52,10 @@ opt_packages=(
 container=$(buildah from --pull "${base_image}")
 buildah config --label maintainer="Joakim Nohlgård <joakim@nohlgard.se>" ${container}
 
-buildah run ${container} dnf -y install $(<"${dnf_packages_file}")
+dnf_install_from_list_files ${container} "${dnf_packages_dir}"/*.dnf.txt
+if [ -d "${dnf_user_packages_dir}" ]; then
+  dnf_install_from_list_files ${container} "${dnf_user_packages_dir}"/*.dnf.txt
+fi
 buildah run ${container} dnf clean all
 ( cd "${dist_dir}" && buildah add ${container} "${opt_packages[@]}" /opt/ )
 buildah config --env PATH="$(buildah run $container printenv PATH):/opt/gcc-arm-none-eabi-${arm_gcc_version}/bin/:/opt/mips-mti-elf/${mips_mti_gcc_version}/bin/:/opt/riscv64-unknown-elf-gcc-${riscv_gcc_version}-${arch}-linux-centos6/bin:/opt/riot-toolchain/msp430-elf/${msp430_gcc_version}/bin/:/opt/xtensa-lx106-elf/bin:/opt/xtensa-esp32-elf/bin" ${container}
