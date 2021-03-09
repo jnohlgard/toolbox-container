@@ -2,20 +2,7 @@
 set -euxo pipefail
 mydir=$(cd "$(dirname "$0")"; pwd)
 
-arch=$(uname -m)
-
-# Alternative names for architectures
-case ${arch} in
-  x86_64)
-    altarch=amd64
-    ;;
-  aarch64)
-    altarch=arm64
-    ;;
-  *)
-    altarch=${arch}
-    ;;
-esac
+source "${mydir}/common.inc.sh"
 
 toolbox_tag=riotbuild
 base_image=registry.fedoraproject.org/f33/fedora-toolbox:33
@@ -47,14 +34,6 @@ opt_packages=(
   "${esp8266_gcc_package}"
   "${esp32_gcc_package}"
 )
-
-dnf_install_from_list_files() {
-  container=${1}; shift
-  # Read all lines in the given files, stripping comments that begin with # (hash symbol)
-  ( for f in "$@"; do
-    sed -e '/^[ \t]*#/d' -e 's/[ \t]#.*$//' < "${f}"
-  done ) | xargs buildah run ${container} dnf -y install
-}
 
 # Ensure packages are downloaded
 ( cd "${dist_dir}" && "${manifest_downloader}" "${manifest}" "${opt_packages[@]}" )
