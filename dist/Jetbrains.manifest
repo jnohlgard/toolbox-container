@@ -1,2 +1,29 @@
+# CLion stable releases
+#
+# https://www.jetbrains.com/clion
+#
+# The stable releases have a 30-day evaluation period and after that will
+# require a license from Jetbrains
+
+# 2020.3.2 build 203.7148.70
+# Released: 28 January 2021
 DIST CLion-2020.3.2.tar.gz 624043209 SHA256 5d49bd88b6457271464687453ff65880a4a38974575bb76f969036c692072280
+
+# 2020.3 build 203.5981.166
+# Released: 2 December 2020
 DIST CLion-2020.3.tar.gz 631168831 SHA256 ffc862511bf80debb80f9d60d2999b02e32b7c3cbb8ac25a4c0efc5b9850124f
+
+# CLion Early Access Program releases
+#
+# https://www.jetbrains.com/clion/nextversion/
+#
+# Unlike the stable releases, no license subscription is required to use the
+# early access releases.
+
+# 2021.1 EAP build 211.6305.15
+# Released: March 4, 2021
+DIST CLion-211.6305.15.tar.gz 706312087 SHA256 c7487bdbcb267ef0a115a2dc35adfdca407c2cc788f492dd8d0735df451ac3a8
+
+# 2021.1 EAP build 211.6085.16
+# Released: February 18, 2021
+DIST CLion-211.6085.16.tar.gz 705210423 SHA256 08fa28c7943620d550290e2213c01c5a75220897bb6c341123f0442ef4b6a2d5
