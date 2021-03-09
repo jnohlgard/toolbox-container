@@ -4,6 +4,19 @@ mydir=$(cd "$(dirname "$0")"; pwd)
 
 arch=$(uname -m)
 
+# Alternative names for architectures
+case ${arch} in
+  x86_64)
+    altarch=amd64
+    ;;
+  aarch64)
+    altarch=arm64
+    ;;
+  *)
+    altarch=${arch}
+    ;;
+esac
+
 toolbox_tag=riotbuild
 base_image=registry.fedoraproject.org/f33/fedora-toolbox:33
 dnf_packages_dir=${mydir}/riot-packages.d
@@ -15,14 +28,13 @@ riscv_gcc_version=10.1.0-2020.08.2
 msp430_gcc_version=10.1.0-18
 esp8266_gcc_version=gcc8_4_0-esp-2020r3
 esp32_gcc_version=gcc8_4_0-esp-2020r3
-esp_gcc_arch=amd64
 
 arm_gcc_package=gcc-arm-none-eabi-${arm_gcc_version}-${arch}-linux.tar.bz2
 mips_gcc_package=Codescape.GNU.Tools.Package.${mips_mti_gcc_version}.for.MIPS.MTI.Bare.Metal.CentOS-6.${arch}.tar.gz
 riscv_gcc_package=riscv64-unknown-elf-gcc-${riscv_gcc_version}-${arch}-linux-centos6.tar.gz
 msp430_gcc_package=riot-msp430-elf-${msp430_gcc_version}.tgz
-esp8266_gcc_package=xtensa-lx106-elf-${esp8266_gcc_version}-linux-${esp_gcc_arch}.tar.gz
-esp32_gcc_package=xtensa-esp32-elf-${esp32_gcc_version}-linux-${esp_gcc_arch}.tar.gz
+esp8266_gcc_package=xtensa-lx106-elf-${esp8266_gcc_version}-linux-${altarch}.tar.gz
+esp32_gcc_package=xtensa-esp32-elf-${esp32_gcc_version}-linux-${altarch}.tar.gz
 
 dist_dir=${mydir}/dist
 manifest_downloader=${mydir}/download-verify/manifest-download.sh
