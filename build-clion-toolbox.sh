@@ -39,8 +39,12 @@ buildah config --label maintainer="Joakim Nohlgård <joakim@nohlgard.se>" ${cont
 
 # CLion bundles its own JRE build based on OpenJDK 11, but we still need a
 # bunch of X11 libraries to run it. The easiest solution is to install OpenJDK
-# on the container which will pull in all of those deps
-buildah run ${container} dnf install -y java-11-openjdk
+# on the container which will pull in all of those deps.
+# flatpak-xdg-utils provides the flatpak-xdg-open wrapper that allows us to open
+# URLs in the host web browser using flatpak-xdg-open.
+# JCEF (Chrome embedded) requires some additional libraries that we need to add
+# here as well
+buildah run ${container} dnf install -y java-11-openjdk flatpak-xdg-utils nss libX11-xcb libdrm mesa-libgbm
 buildah run ${container} dnf clean all
 
 buildah add ${container} "${dist_dir}/${clion_archive}" /opt/
