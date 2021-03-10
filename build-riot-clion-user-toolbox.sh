@@ -18,7 +18,7 @@ if [ -d "${dnf_user_packages_dir}" ]; then
 
   if [ -n "${user_dnf_lists}" ]; then
     # Create a container
-    container=$(buildah from --pull "${base_image}")
+    container=$(buildah from "riot-clion:${CLION_VERSION}")
 
     dnf_install_from_list_files ${container} "${user_dnf_lists}"
     buildah run ${container} dnf clean all
