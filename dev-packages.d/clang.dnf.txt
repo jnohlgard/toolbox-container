@@ -1,0 +1,12 @@
+# LLVM/Clang toolchain
+clang
+clang-tools-extra
+llvm
+clang-devel
+llvm-devel
+clang9.0-devel
+llvm9.0-devel
+clang10-devel
+llvm10-devel
+lldb
+lld

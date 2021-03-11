@@ -1,0 +1,14 @@
+# Useful utilities
+findutils
+moreutils
+less
+p7zip
+xz
+parallel
+unzip
+wget
+curl
+pcre-tools
+vim-common
+gzip
+sqlite-devel

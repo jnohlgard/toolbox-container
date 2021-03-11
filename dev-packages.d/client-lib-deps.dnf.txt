@@ -1,0 +1,9 @@
+# Dependencies for building the client
+libcurl-devel
+zlib-devel
+sqlite-devel
+pulseaudio-libs-devel
+alsa-lib-devel
+czmq-devel
+libuuid-devel
+protobuf

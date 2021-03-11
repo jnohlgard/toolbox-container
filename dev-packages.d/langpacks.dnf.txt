@@ -1,0 +1,6 @@
+# langpacks contains the language definition files for different human
+# languages. Without the correct language installed in the toolbox we get
+# warnings from perl for almost all git commands because it fails to open the
+# locale files.
+langpacks-en
+langpacks-sv

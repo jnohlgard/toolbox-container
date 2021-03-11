@@ -1,0 +1,5 @@
+gcc
+gcc-c++
+gdb
+glibc-devel.i686
+glibc-devel
