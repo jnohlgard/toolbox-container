@@ -48,4 +48,5 @@ buildah run ${container} dnf install -y java-11-openjdk flatpak-xdg-utils nss li
 buildah run ${container} dnf clean all
 
 buildah add ${container} "${dist_dir}/${clion_archive}" /opt/
+buildah config --env PATH="$(buildah run $container printenv PATH):/opt/clion-${CLION_VERSION}/bin/" ${container}
 buildah commit --rm ${container} ${dest_image}
