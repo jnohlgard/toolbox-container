@@ -1,0 +1,17 @@
+# tools used by the build system
+autoconf
+automake
+cmake
+findutils
+libxslt
+m4
+make
+meson
+ninja-build
+p7zip
+parallel
+pcre-tools
+protobuf
+unzip
+vim-common
+wget

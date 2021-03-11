@@ -1,0 +1,4 @@
+# AVR GCC compiler
+avr-gcc
+avr-libc
+avr-gcc-c++

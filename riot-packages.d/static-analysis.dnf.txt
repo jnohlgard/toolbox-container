@@ -1,0 +1,6 @@
+# Static code analyzers
+american-fuzzy-lop
+american-fuzzy-lop-clang
+american-fuzzy-lop-clang-fast
+coccinelle
+cppcheck
