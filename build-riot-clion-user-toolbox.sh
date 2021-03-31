@@ -14,13 +14,13 @@ CLION_VERSION="${CLION_VERSION}" BASE_IMAGE=riotbuild:latest "${mydir}/build-cli
 source "${mydir}/common.inc.sh"
 
 if [ -d "${dnf_user_packages_dir}" ]; then
-  user_dnf_lists=$(find "${dnf_user_packages_dir}" -name '*.dnf.txt' -print)
+  user_dnf_lists=$(find "${dnf_user_packages_dir}" -name '*.dnf.txt' -print 2>/dev/null)
 
   if [ -n "${user_dnf_lists}" ]; then
     # Create a container
     container=$(buildah from "riot-clion:${CLION_VERSION}")
 
-    dnf_install_from_list_files ${container} "${user_dnf_lists}"
+    dnf_install_from_list_files ${container} ${user_dnf_lists}
     buildah run ${container} dnf clean all
     buildah commit --rm ${container} riot-user-toolbox
   fi
