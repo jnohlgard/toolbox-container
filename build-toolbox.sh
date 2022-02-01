@@ -10,7 +10,7 @@ dnf_packages_dir=${mydir}/dev-packages.d
 source "${mydir}/common.inc.sh"
 
 toolbox_tag=dev-toolbox
-base_image=registry.fedoraproject.org/f33/fedora-toolbox:33
+base_image=registry.fedoraproject.org/fedora-toolbox:35
 
 # Create a container
 container=$(buildah from --pull "${base_image}")
