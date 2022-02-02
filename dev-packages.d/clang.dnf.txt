@@ -4,7 +4,5 @@ clang-tools-extra
 llvm
 clang-devel
 llvm-devel
-clang10-devel
-llvm10-devel
 lldb
 lld
