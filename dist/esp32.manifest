@@ -1,0 +1,6 @@
+DIST binutils-esp32s2ulp-linux-amd64-2.28.51-esp-20191205.tar.gz 8254018 SHA256 df7b2ff6c7c718a7cbe3b4b6dbcd68180d835d164d1913bc4698fd3781b9a466
+DIST binutils-esp32ulp-linux-amd64-2.28.51-esp-20191205.tar.gz 8248656 SHA256 3016c4fc551181175bd9979869bc1d1f28fa8efa25a0e29ad7f833fca4bc03d7
+DIST riscv32-esp-elf-gcc8_4_0-esp-2021r2-linux-amd64.tar.gz 106837189 SHA256 812d735063da9d063b374b59f55832a96c41fbd27ddaef19000a75de8607ba21
+DIST xtensa-esp32-elf-gcc8_4_0-esp-2021r2-linux-amd64.tar.gz 90565318 SHA256 3eb3d68b27fa6ba5af6f88da21cb8face9be0094daaa8960793cfe570ab785ff
+DIST xtensa-esp32s2-elf-gcc8_4_0-esp-2021r2-linux-amd64.tar.gz 90901736 SHA256 a6e0947c92b823ca04f062522249f0a428357e0b056f1ff4c6bcabef83cf63a7
+DIST xtensa-esp32s3-elf-gcc8_4_0-esp-2021r2-linux-amd64.tar.gz 90887465 SHA256 b958eb47f51fc2a91e3beda78a331a380eb8c96d5452f7795adf3f565d7fca2f
