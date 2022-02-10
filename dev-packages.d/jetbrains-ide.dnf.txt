@@ -6,3 +6,8 @@
 # JCEF (Chrome embedded) requires some additional libraries that we need to add
 # here as well
 java-11-openjdk flatpak-xdg-utils nss libX11-xcb libdrm mesa-libgbm
+# Jetbrains Projector server requires some extra Python and X11 packages
+python3 python3-pip python3-pyOpenSSL python3-cryptography python3-netifaces
+libXext libXi libXrender libXtst freetype
+# Jetbrains Gateway uses SSH for accessing the host
+openssh-server
