@@ -7,3 +7,4 @@ alsa-lib-devel
 czmq-devel
 libuuid-devel
 protobuf
+libatomic
