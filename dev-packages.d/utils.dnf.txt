@@ -12,3 +12,4 @@ pcre-tools
 vim-common
 gzip
 sqlite-devel
+file
