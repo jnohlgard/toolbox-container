@@ -6,3 +6,4 @@ clang-devel
 llvm-devel
 lldb
 lld
+libatomic
