@@ -1,2 +1,4 @@
 libcxx
 libcxx-devel
+libcxxabi-static
+libcxx-static
