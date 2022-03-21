@@ -44,5 +44,7 @@ if [ -d "${dnf_user_packages_dir}" ]; then
 fi
 buildah run ${container} dnf clean all
 ( cd "${dist_dir}" && buildah add ${container} "${opt_packages[@]}" /opt/ )
-buildah config --env PATH="$(buildah run $container printenv PATH):/opt/gcc-arm-none-eabi-${arm_gcc_version}/bin/:/opt/riscv64-unknown-elf-toolchain-${riscv_gcc_version}-${arch}-linux-centos6/bin" ${container}
+buildah run ${container} ln -s "riscv64-unknown-elf-toolchain-${riscv_gcc_version}-${arch}-linux-centos6" /opt/riscv64-unknown-elf-toolchain
+buildah run ${container} ln -s "gcc-arm-none-eabi-${arm_gcc_version}" /opt/gcc-arm-none-eabi
+buildah config --env PATH="$(buildah run $container printenv PATH):/opt/gcc-arm-none-eabi/bin/:/opt/riscv64-unknown-elf-toolchain/bin" ${container}
 buildah commit --rm ${container} ${toolbox_tag}
