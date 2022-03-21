@@ -8,3 +8,6 @@ czmq-devel
 libuuid-devel
 protobuf
 libatomic
+libnotify-devel
+NetworkManager-libnm-devel
+gtk3-devel
