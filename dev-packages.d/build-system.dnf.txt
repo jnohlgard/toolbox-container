@@ -4,3 +4,5 @@ meson
 ninja-build
 cmake
 libtool
+flex
+bison
