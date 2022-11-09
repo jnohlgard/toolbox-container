@@ -13,3 +13,5 @@ vim-common
 gzip
 sqlite-devel
 file
+bzip2
+patch
