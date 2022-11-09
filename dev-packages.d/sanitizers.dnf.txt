@@ -1,0 +1,4 @@
+libasan libasan-static
+libubsan libubsan-static
+libtsan libtsan-static
+liblsan liblsan-static
