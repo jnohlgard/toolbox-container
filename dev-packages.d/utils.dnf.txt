@@ -15,3 +15,5 @@ sqlite-devel
 file
 bzip2
 patch
+rsync
+lzip
