@@ -1,6 +1,7 @@
 # Useful utilities
 findutils
 moreutils
+diffutils
 less
 p7zip
 xz
@@ -13,7 +14,9 @@ vim-common
 gzip
 sqlite-devel
 file
+tree
 bzip2
 patch
 rsync
 lzip
+usbutils
