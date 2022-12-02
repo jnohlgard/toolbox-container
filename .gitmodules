@@ -1,3 +1,6 @@
-[submodule "download-verify"]
-	path = download-verify
-	url = https://github.com/jnohlgard/download-verify.git
+[submodule "mgv"]
+	path = mgv
+	url = https://github.com/jnohlgard/mgv.git
+[submodule "toolchain-resources"]
+	path = toolchain-resources
+	url = https://github.com/jnohlgard/toolchain-resources.git

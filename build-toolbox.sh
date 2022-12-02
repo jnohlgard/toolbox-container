@@ -16,8 +16,7 @@ arm_gcc_package=gcc-arm-none-eabi-${arm_gcc_version}-${arch}-linux.tar.bz2
 riscv_gcc_package=riscv64-unknown-elf-toolchain-${riscv_gcc_version}-${arch}-linux-centos6.tar.gz
 
 dist_dir=${mydir}/dist
-manifest_downloader=${mydir}/download-verify/manifest-download.sh
-manifest=${dist_dir}/RIOT.manifest
+mgv=${mydir}/mgv/mgv
 
 opt_packages=(
   "${arm_gcc_package}"
@@ -25,11 +24,11 @@ opt_packages=(
 )
 
 # Ensure packages are downloaded
-( cd "${dist_dir}" && "${manifest_downloader}" "${manifest}" "${opt_packages[@]}" )
+( cd "${dist_dir}"; "${mgv}" get "${opt_packages[@]}" )
 
 # Create a container
 container=$(buildah from --pull "${base_image}")
-buildah config --label maintainer="Joakim Nohlgård <joakim@nohlgard.se>" ${container}
+buildah config --author "Joakim Nohlgård <joakim@nohlgard.se>" ${container}
 
 # Install RPMFusion repository configuration
 buildah run ${container} bash -c 'dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'

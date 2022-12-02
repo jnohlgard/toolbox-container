@@ -1,4 +1,3 @@
 dist/*
-!dist/*.src-uri
-!dist/*.manifest
+!dist/*.mgv
 user-packages.d/*.dnf.txt
