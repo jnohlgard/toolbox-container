@@ -4,8 +4,8 @@ mydir=$(cd "$(dirname "$0")"; pwd)
 
 source "${mydir}/common.inc.sh"
 
-toolbox_tag=dev-toolbox
-base_image=registry.fedoraproject.org/fedora-toolbox:35
+toolbox_tag=cppdev:latest
+base_image=registry.fedoraproject.org/fedora:latest
 dnf_packages_dir=${mydir}/dev-packages.d
 dnf_user_packages_dir=${mydir}/user-packages.d
 
