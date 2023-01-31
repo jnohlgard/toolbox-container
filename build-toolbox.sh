@@ -29,6 +29,13 @@ opt_packages=(
 # Create a container
 container=$(buildah from --pull "${base_image}")
 buildah config --author "$(git config user.name) <$(git config user.email)>" ${container}
+buildah config --label 'com.github.containers.toolbox=true' ${container}
+# Install manpages that are not installed by default in Fedora container images
+buildah run ${container} sed -i '/tsflags=nodocs/d' /etc/dnf/dnf.conf
+buildah run ${container} dnf -y swap coreutils-single coreutils-full
+buildah run ${container} dnf -y swap glibc-minimal-langpack glibc-all-langpacks
+buildah run ${container} rm -f /etc/rpm/macros.image-language.conf
+buildah run ${container} dnf -y reinstall $(<missing-docs.dnf.txt)
 
 # Install RPMFusion repository configuration
 buildah run ${container} bash -c 'dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
