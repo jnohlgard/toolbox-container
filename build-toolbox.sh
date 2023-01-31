@@ -28,7 +28,7 @@ opt_packages=(
 
 # Create a container
 container=$(buildah from --pull "${base_image}")
-buildah config --author "Joakim Nohlgård <joakim@nohlgard.se>" ${container}
+buildah config --author "$(git config user.name) <$(git config user.email)>" ${container}
 
 # Install RPMFusion repository configuration
 buildah run ${container} bash -c 'dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
