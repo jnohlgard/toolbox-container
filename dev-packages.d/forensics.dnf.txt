@@ -1,0 +1,6 @@
+rizin rizin-devel
+binwalk
+dwarves
+elfutils
+elfutils-libelf elfutils-libelf-devel
+nmap
