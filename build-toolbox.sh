@@ -38,7 +38,7 @@ buildah run ${container} rm -f /etc/rpm/macros.image-language.conf
 buildah run ${container} dnf -y reinstall $(<missing-docs.dnf.txt)
 
 # Install RPMFusion repository configuration
-buildah run ${container} bash -c 'dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
+buildah run ${container} sh -c 'dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
 
 dnf_install_from_list_files ${container} "${dnf_packages_dir}"/*.dnf.txt
 if [ -d "${dnf_user_packages_dir}" ]; then
