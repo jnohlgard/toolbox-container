@@ -1,0 +1,14 @@
+binwalk
+cutter-re cutter-re-devel
+dwarves
+elfutils
+elfutils-libelf elfutils-libelf-devel
+libzip-devel
+lzo-devel
+nmap
+python3-devel
+python-matplotlib
+rizin rizin-devel
+sqlitebrowser
+xdelta
+zlib-devel
