@@ -9,18 +9,18 @@ base_image=registry.fedoraproject.org/fedora:latest
 dnf_packages_dir=${mydir}/dev-packages.d
 dnf_user_packages_dir=${mydir}/user-packages.d
 
-arm_gcc_version=10.3-2021.10
+arm_gcc_version=12.2.rel1
 riscv_gcc_version=10.2.0-2020.12.8
 
-arm_gcc_package=gcc-arm-none-eabi-${arm_gcc_version}-${arch}-linux.tar.bz2
+arm_gcc_package=arm-gnu-toolchain-${arm_gcc_version}-${arch}-arm-none-eabi.tar.xz
 riscv_gcc_package=riscv64-unknown-elf-toolchain-${riscv_gcc_version}-${arch}-linux-centos6.tar.gz
 
-dist_dir=${mydir}/dist
+dist_dir=${mydir}/toolchain-resources
 mgv=${mydir}/mgv/mgv
 
 opt_packages=(
-  "${arm_gcc_package}"
-  "${riscv_gcc_package}"
+  "arm/${arm_gcc_package}"
+  "sifive/${riscv_gcc_package}"
 )
 
 # Ensure packages are downloaded
@@ -50,7 +50,7 @@ if [ -d "${dnf_user_packages_dir}" ]; then
 fi
 buildah run ${container} dnf clean all
 ( cd "${dist_dir}" && buildah add ${container} "${opt_packages[@]}" /opt/ )
-buildah run ${container} ln -s "riscv64-unknown-elf-toolchain-${riscv_gcc_version}-${arch}-linux-centos6" /opt/riscv64-unknown-elf-toolchain
-buildah run ${container} ln -s "gcc-arm-none-eabi-${arm_gcc_version}" /opt/gcc-arm-none-eabi
-buildah config --env PATH="$(buildah run $container printenv PATH):/opt/gcc-arm-none-eabi/bin/:/opt/riscv64-unknown-elf-toolchain/bin" ${container}
+buildah run ${container} ln -s "${riscv_gcc_package%.tar.*}" /opt/riscv64-unknown-elf-toolchain
+buildah run ${container} ln -s "${arm_gcc_package%.tar.*}" /opt/arm-none-eabi-toolchain
+buildah config --env PATH="$(buildah run $container printenv PATH):/opt/arm-none-eabi-toolchain/bin/:/opt/riscv64-unknown-elf-toolchain/bin" ${container}
 buildah commit --rm ${container} ${toolbox_tag}
